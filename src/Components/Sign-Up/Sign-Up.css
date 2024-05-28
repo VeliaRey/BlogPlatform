@@ -1,0 +1,128 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap'); */
+
+.form-page {
+  padding-top: 60px;
+  font-family: 'Roboto';
+}
+
+.form {
+  background-color: white;
+  width: 384px;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 48px 32px;
+  box-shadow:
+    0px 0.6087964177131653px 2.9332919120788574px 0px #00000005,
+    0px 1.4630224704742432px 7.049108028411865px 0px #00000007,
+    0px 2.7547414302825928px 13.272845268249512px 0px #00000009,
+    0px 4.91398811340332px 23.67648696899414px 0px #0000000b,
+    0px 9.19107437133789px 44.28426742553711px 0px #0000000d,
+    0px 22px 106px 0px #00000012;
+  border-radius: 6px;
+  border: 1px solid #d9d9d9;
+  display: flex;
+  flex-direction: column;
+  gap: 21px;
+}
+
+.form__title {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+.form__inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__inputs label {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-top: 12px;
+}
+
+.form__inputs input {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  padding: 8px 12px;
+  border: 1px solid #bfbfbf;
+  color: black;
+  border-radius: 5px;
+}
+
+.invalid {
+  border: 1px solid red !important;
+}
+
+.form__inputs label:first-child {
+  margin-top: 0;
+}
+
+.agreement {
+  display: flex;
+  border-top: 1px solid #e8e8e8;
+  padding-top: 8px;
+  margin-top: 9px;
+}
+
+.agreement-input {
+  height: 16px;
+  width: 16px;
+}
+
+.agreement-text {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0em;
+  color: #595959;
+  margin-left: 8px;
+}
+
+.login-button {
+  line-height: 40px;
+  background-color: #1890ff;
+  border-radius: 4px;
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 0em;
+  text-align: center;
+  margin-top: 9px;
+}
+
+.login-sign {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #8c8c8c;
+  margin-top: -13px;
+}
+
+.login-link {
+  color: #1890ff;
+  text-decoration: none;
+}
+
+.validation {
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #f5222d;
+}

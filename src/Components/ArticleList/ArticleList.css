@@ -1,0 +1,7 @@
+.article-list {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  align-items: center;
+  padding: 26px 0;
+}

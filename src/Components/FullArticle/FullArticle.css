@@ -1,0 +1,43 @@
+.article-full {
+  min-height: 807px;
+}
+
+/* .title__text-full, */
+.content__preview-full,
+.content__body {
+  width: 100%;
+  word-wrap: break-word;
+}
+
+.title__text-full {
+  max-width: 600px;
+  overflow-wrap: break-word;
+}
+
+.content__body {
+  width: 880px;
+}
+
+.info__button {
+  padding: 6.5px 18px;
+  border-radius: 5px;
+  font-family: 'Roboto';
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.button__edit {
+  border: 1px solid #52c41a;
+  color: #52c41a;
+  text-decoration: none;
+  min-height: 36px;
+  margin-left: 12px;
+}
+
+.article__extra {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}

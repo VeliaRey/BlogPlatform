@@ -1,0 +1,110 @@
+.article {
+  width: 938px;
+  height: 140px;
+  display: flex;
+  background: white;
+  box-shadow: 0px 4px 12px 0px #00000026;
+  border-radius: 5px;
+  padding: 15px;
+  font-family: 'Roboto';
+}
+
+.article__content {
+  width: 682px;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.title__text {
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #1890ff;
+  font-weight: 400px;
+  margin-right: 13px;
+  text-decoration: none;
+}
+
+.title__likes {
+  line-height: 28px;
+  margin-left: 5px;
+  height: 28px;
+}
+
+.anticon {
+  line-height: 28px;
+  height: 28px;
+}
+
+.content__title {
+  display: flex;
+}
+
+.content__tags {
+  display: flex;
+  gap: 5px;
+  overflow: hidden;
+  min-height: 20px;
+}
+
+.tags__tag {
+  border: 1px solid #00000080;
+  height: 20px;
+  border-radius: 2px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
+  letter-spacing: 0em;
+  text-align: center;
+  padding: 2px;
+}
+
+.content__preview {
+  font-size: 12px;
+  line-height: 22px;
+  color: #000000bf;
+  min-height: 45px;
+}
+
+.article__info {
+  display: flex;
+  gap: 12px;
+}
+
+.user__nickname {
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0em;
+  text-align: right;
+}
+
+.user__date {
+  font-size: 12px;
+  line-height: 22px;
+  letter-spacing: 0px;
+  text-align: right;
+  color: #00000080;
+}
+
+.info__avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+}
+
+.liked {
+  color: red;
+}
+
+.anticon-heart {
+  background-color: white;
+}
+
+.anticon svg {
+  height: 16px;
+  width: 16px;
+}
