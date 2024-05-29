@@ -46,24 +46,26 @@ function SignIn() {
         <form className="form__inputs" onSubmit={handleSubmit(submit)}>
           <label htmlFor="email">Email address</label>
           <input
-            className={`email-input ${(errors.email?.message || error['email or password']) && 'invalid'}`}
+            className={`email-input ${errors.email?.message && 'invalid'}`}
             id="email"
             placeholder="Email address"
             name="email"
             type="mail"
             autoComplete="off"
+            onChange={() => setError({})}
             {...register('email', {
               required: 'Email is required',
+              onChange: () => setError({}),
               pattern: {
                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
                 message: 'Enter a valid e-mail address',
               },
             })}
           />
-          <p className="validation"> {errors.email?.message || error['email or password']} </p>
+          <p className="validation"> {errors.email?.message} </p>
           <label htmlFor="password">Password</label>
           <input
-            className={`password-input ${(errors.password?.message || error['email or password']) && 'invalid'}`}
+            className={`password-input ${errors.password?.message && 'invalid'}`}
             id="password"
             placeholder="Password"
             name="password"
@@ -71,9 +73,13 @@ function SignIn() {
             autoComplete="off"
             {...register('password', {
               required: 'Password is required',
+              onChange: () => setError({}),
             })}
           />
-          <p className="validation"> {errors.password?.message || error['email or password']}</p>
+          <p className="validation">
+            {' '}
+            {error['email or password'] ? `email or password ${error['email or password']}` : null}
+          </p>
           <button className="login-button" type="submit">
             Login
           </button>

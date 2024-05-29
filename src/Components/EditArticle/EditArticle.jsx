@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate, useParams } from 'react-router-dom'
+import { nanoid } from '@reduxjs/toolkit'
 
 import { editPost } from '../../Services/Api'
 
@@ -37,7 +38,7 @@ function EditArticle() {
           title: data.title,
           description: data.description,
           body: data.text,
-          tagList,
+          tagList: [...tagList, tagValue],
         },
       },
       slug
@@ -111,14 +112,8 @@ function EditArticle() {
               Tags
               {tagList &&
                 tagList.map((item, id) => (
-                  <div key={Math.random() * 100000} className="tags">
-                    <input
-                      className="tags-label"
-                      id={item + Math.random() * 1000}
-                      defaultValue={item}
-                      placeholder="Tags"
-                      disabled
-                    />
+                  <div key={nanoid()} className="tags">
+                    <input className="tags-label" id={nanoid()} defaultValue={item} placeholder="Tags" disabled />
                     <button type="button" className="tags__button" onClick={(e) => handleClickDeleteTag(e, id)}>
                       Delete
                     </button>

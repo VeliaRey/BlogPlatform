@@ -72,13 +72,13 @@ function FullArticle() {
             <div className="article__info">
               <div className="info__user">
                 <p className="user__nickname">{post.author.username}</p>
-                <p className="user__date">
+                <time className="user__date">
                   {post.updatedAt === post.createdAt ? (
                     <> {createTime(post.createdAt)} </>
                   ) : (
                     <> {createTime(post.updatedAt)} </>
                   )}
-                </p>
+                </time>
               </div>
               <img src={post.author.image} alt="avatar" className="info__avatar" />
             </div>

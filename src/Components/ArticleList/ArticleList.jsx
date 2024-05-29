@@ -22,7 +22,7 @@ function ArticleList() {
   }, [dispatch])
 
   return (
-    <div className="article-list">
+    <ul className="article-list">
       {posts?.map((post) => (
         <Article
           key={post.slug}
@@ -41,7 +41,7 @@ function ArticleList() {
         />
       ))}
       <Pagination pageSize={5} total={totalPosts} onChange={handlePageChange} showSizeChanger={false} />
-    </div>
+    </ul>
   )
 }
 export default ArticleList

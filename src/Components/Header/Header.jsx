@@ -28,7 +28,7 @@ export default function Header() {
   }, [isLogged, dispatch])
 
   return (
-    <div className="header">
+    <header className="header">
       <Link to="/articles" className="header__logo">
         Realworld blog
       </Link>
@@ -56,6 +56,6 @@ export default function Header() {
           </Link>
         </>
       )}
-    </div>
+    </header>
   )
 }

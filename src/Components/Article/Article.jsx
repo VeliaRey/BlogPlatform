@@ -40,7 +40,7 @@ function Article({
   const createTime = (date) => format(new Date(date), 'MMMM dd, yyyy')
 
   return (
-    <div className="article">
+    <li className="article">
       <div className="article__content">
         <div className="content__title">
           <Link to={`/articles/${slug}`} className="title__text">
@@ -66,13 +66,13 @@ function Article({
       <div className="article__info">
         <div className="info__user">
           <p className="user__nickname">{username}</p>
-          <p className="user__date">
+          <time className="user__date">
             {updatedAt === createdAt ? <> {createTime(createdAt)} </> : <> {createTime(updatedAt)} </>}
-          </p>
+          </time>
         </div>
         <img src={avatar} alt="avatar" className="info__avatar" />
       </div>
-    </div>
+    </li>
   )
 }
 export default Article

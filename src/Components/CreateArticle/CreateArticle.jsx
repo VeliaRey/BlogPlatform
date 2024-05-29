@@ -37,7 +37,7 @@ function CreateArticle() {
         title: data.title,
         description: data.description,
         body: data.text,
-        tagList,
+        tagList: [...tagList, tagValue],
       },
     })
     navigate('/')

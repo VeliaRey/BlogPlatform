@@ -105,12 +105,7 @@ function SignUp() {
             autoComplete="off"
             {...register('repeat', {
               required: 'Confirm your password',
-              validate: (val) => {
-                if (watch('password') !== val) {
-                  return 'Your passwords do no match'
-                }
-                return val
-              },
+              validate: (value) => value === watch('password') || 'Passwords do not match',
             })}
           />
           <p className="validation"> {errors.repeat?.message} </p>

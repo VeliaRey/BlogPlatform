@@ -11,38 +11,41 @@ import EditProfile from '../EditProfile/EditProfile'
 import CreateArticle from '../CreateArticle/CreateArticle'
 import FullArticle from '../FullArticle/FullArticle'
 import EditArticle from '../EditArticle/EditArticle'
+import './App.css'
 
 function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
         <Header />
-        <Routes>
-          <Route path="/" element={<ArticleList />} />
-          <Route path="/articles" element={<ArticleList />} />
-          <Route path="/articles/:slug" element={<FullArticle />} />
-          <Route path="/sign-in" element={<SignIn />} />
-          <Route path="/sign-up" element={<SignUp />} />
-          <Route path="/profile" element={<EditProfile />} />
-          <Route
-            path="/new-article"
-            element={
-              <PrivateRoute>
-                {' '}
-                <CreateArticle />{' '}
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/articles/:slug/edit"
-            element={
-              <PrivateRoute>
-                {' '}
-                <EditArticle />{' '}
-              </PrivateRoute>
-            }
-          />
-        </Routes>
+        <main className="blog-platform">
+          <Routes>
+            <Route path="/" element={<ArticleList />} />
+            <Route path="/articles" element={<ArticleList />} />
+            <Route path="/articles/:slug" element={<FullArticle />} />
+            <Route path="/sign-in" element={<SignIn />} />
+            <Route path="/sign-up" element={<SignUp />} />
+            <Route path="/profile" element={<EditProfile />} />
+            <Route
+              path="/new-article"
+              element={
+                <PrivateRoute>
+                  {' '}
+                  <CreateArticle />{' '}
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/articles/:slug/edit"
+              element={
+                <PrivateRoute>
+                  {' '}
+                  <EditArticle />{' '}
+                </PrivateRoute>
+              }
+            />
+          </Routes>
+        </main>
       </BrowserRouter>
     </Provider>
   )
