@@ -12,15 +12,22 @@ function EditArticle() {
   const { slug } = useParams()
   const navigate = useNavigate()
 
-  const handleAddTag = (e) => {
-    e.preventDefault()
-    setTagList([...tagList, tagValue])
-    setTagValue('')
+  const handleAddTag = () => {
+    if (tagValue) {
+      setTagList([...tagList, tagValue])
+      setTagValue('')
+    }
   }
 
   const handleClickDeleteTag = (e, id) => {
     e.preventDefault()
-    setTagList(tagList.filter((arg, index) => index !== id))
+    setTagList(tagList.filter((tag, index) => index !== id))
+  }
+
+  const handleTagChange = (e, index) => {
+    const updatedTags = [...tagList]
+    updatedTags[index] = e.target.value
+    setTagList(updatedTags)
   }
 
   const {
@@ -32,13 +39,15 @@ function EditArticle() {
   })
 
   const submit = async (data) => {
+    const finalTagList = tagValue ? [...tagList, tagValue] : tagList
+
     await editPost(
       {
         article: {
           title: data.title,
           description: data.description,
           body: data.text,
-          tagList: [...tagList, tagValue],
+          tagList: finalTagList,
         },
       },
       slug
@@ -62,7 +71,6 @@ function EditArticle() {
           <h1 className="new-article__title">Edit article</h1>
           <form className="new-article__form" onSubmit={handleSubmit(submit)}>
             <label htmlFor="title">
-              {' '}
               Title
               <input
                 id="title"
@@ -70,14 +78,13 @@ function EditArticle() {
                 placeholder="Title"
                 defaultValue={post.title}
                 {...register('title', {
-                  required: 'title is a required field',
+                  required: 'Title is a required field',
                 })}
               />
-              <p className="validation"> {errors.title?.message} </p>
+              <p className="validation">{errors.title?.message}</p>
             </label>
 
             <label htmlFor="description">
-              {' '}
               Short description
               <input
                 id="description"
@@ -85,14 +92,13 @@ function EditArticle() {
                 placeholder="Short description"
                 defaultValue={post.description}
                 {...register('description', {
-                  required: 'description is a required field',
+                  required: 'Description is a required field',
                 })}
               />
-              <p className="validation"> {errors.description?.message} </p>
+              <p className="validation">{errors.description?.message}</p>
             </label>
 
             <label htmlFor="text">
-              {' '}
               Text
               <textarea
                 className="text-label"
@@ -101,24 +107,28 @@ function EditArticle() {
                 placeholder="Text"
                 defaultValue={post.body}
                 {...register('text', {
-                  required: 'text is a required field',
+                  required: 'Text is a required field',
                 })}
               />
-              <p className="validation"> {errors.text?.message} </p>
+              <p className="validation">{errors.text?.message}</p>
             </label>
 
             <label htmlFor="tags">
-              {' '}
               Tags
-              {tagList &&
-                tagList.map((item, id) => (
-                  <div key={nanoid()} className="tags">
-                    <input className="tags-label" id={nanoid()} defaultValue={item} placeholder="Tags" disabled />
-                    <button type="button" className="tags__button" onClick={(e) => handleClickDeleteTag(e, id)}>
-                      Delete
-                    </button>
-                  </div>
-                ))}
+              {tagList.map((item, index) => (
+                <div key={nanoid()} className="tags">
+                  <input
+                    className="tags-label"
+                    id={`tag-${index}`}
+                    value={item}
+                    onChange={(e) => handleTagChange(e, index)}
+                    placeholder="Tag"
+                  />
+                  <button type="button" className="tags__button" onClick={(e) => handleClickDeleteTag(e, index)}>
+                    Delete
+                  </button>
+                </div>
+              ))}
               <div className="tags">
                 <input
                   className="tags-label"
@@ -128,7 +138,7 @@ function EditArticle() {
                   value={tagValue}
                   onChange={(e) => setTagValue(e.target.value)}
                 />
-                <button type="button" className="tags__button tags__button-add" onClick={(e) => handleAddTag(e)}>
+                <button type="button" className="tags__button tags__button-add" onClick={handleAddTag}>
                   Add tag
                 </button>
               </div>

@@ -1,15 +1,14 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import './Sign-In.css'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
+import { message } from 'antd'
 
 import { loginUser } from '../../Services/Api'
 import { loginStatus } from '../../toolkitRedux/userSlice'
 
 function SignIn() {
-  const [error, setError] = useState({})
-
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
@@ -27,7 +26,7 @@ function SignIn() {
         navigate('/')
       })
     } catch (e) {
-      setError(e)
+      message.error('Invalid email or password')
     }
   }
 
@@ -52,10 +51,8 @@ function SignIn() {
             name="email"
             type="mail"
             autoComplete="off"
-            onChange={() => setError({})}
             {...register('email', {
               required: 'Email is required',
-              onChange: () => setError({}),
               pattern: {
                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
                 message: 'Enter a valid e-mail address',
@@ -73,13 +70,8 @@ function SignIn() {
             autoComplete="off"
             {...register('password', {
               required: 'Password is required',
-              onChange: () => setError({}),
             })}
           />
-          <p className="validation">
-            {' '}
-            {error['email or password'] ? `email or password ${error['email or password']}` : null}
-          </p>
           <button className="login-button" type="submit">
             Login
           </button>
